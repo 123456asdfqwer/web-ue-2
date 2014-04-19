@@ -4,7 +4,7 @@
 
 <jsp:useBean id="currQuestion" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuestion" scope="session"></jsp:useBean>
 <% List<Choice> choices = currQuestion.getAllChoices(); %> 
-
+<!--  pushed version -->
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
