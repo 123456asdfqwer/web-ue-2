@@ -34,7 +34,7 @@ public class InitGameService implements Service {
 		String game = null;
 		game.startGame(categories, Players.COMPUTER, Players.USER );
 		
-		session.setAttribute("player1", game.getCurrentPlayer(1));
+		session.setAttribute("player1", newPlayer);
 		session.setAttribute("player2", game.getCurrentPlayer(2));
 		session.setAttribute("currentRound", game.getCurrentRound());
 		session.setAttribute("currentGame", game);
