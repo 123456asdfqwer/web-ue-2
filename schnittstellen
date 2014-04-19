@@ -1,0 +1,4 @@
+String playerX.getPlayerName();
+String[] currentRound.player1result(); //correct V unknowk V incorrect 
+Question getCurrentQuestion();
+int Game.getWinRounds(player1);
