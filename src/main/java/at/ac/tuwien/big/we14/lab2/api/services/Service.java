@@ -1,4 +1,4 @@
-package at.ac.tuwien.big.we14.lab2.services;
+package at.ac.tuwien.big.we14.lab2.api.services;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import at.ac.tuwien.big.we14.lab2.services.InitGameService;
-import at.ac.tuwien.big.we14.lab2.services.QuestionCareTakerService;
+import at.ac.tuwien.big.we14.lab2.api.services.InitGameService;
+import at.ac.tuwien.big.we14.lab2.api.services.QuestionCareTakerService;
 
 public class BigQuizServlet extends HttpServlet {
 

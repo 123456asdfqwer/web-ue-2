@@ -1,4 +1,4 @@
-package at.ac.tuwien.big.we14.lab2.services;
+package at.ac.tuwien.big.we14.lab2.api.services;
 
 import java.util.Enumeration;
 import java.util.List;
@@ -35,7 +35,7 @@ public class QuestionCareTakerService implements Service {
 			}
 		}
 		
-		System.out.println(answer.getChoices());
+		//System.out.println(answer.getChoices());
 		//update current state
 		HttpSession session = request.getSession();
 		session.setAttribute("state", "finish");

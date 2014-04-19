@@ -2,8 +2,14 @@
 <%@ page import="java.util.List" %>
 <%@ page import="at.ac.tuwien.big.we14.lab2.api.Choice" %>
 
-<jsp:useBean id="currQuestion" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuestion" scope="session"></jsp:useBean>
-<% List<Choice> choices = currQuestion.getAllChoices(); %> 
+<jsp:useBean id="currentQuestion" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuestion" scope="session"></jsp:useBean>
+<jsp:useBean id="player1" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuestion" scope="session"></jsp:useBean>
+<jsp:useBean id="player2" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuestion" scope="session"></jsp:useBean>
+<jsp:useBean id="currentGame" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuestion" scope="session"></jsp:useBean>
+<jsp:useBean id="currentRound" class="at.ac.tuwien.big.we14.lab2.api.impl.SimpleQuestion" scope="session"></jsp:useBean>
+
+<% List<Choice> choices = currentQuestion.getAllChoices(); %> 
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
@@ -54,8 +60,8 @@
                 <form id="questionform" action="play?action=answer" method="post">
                     <h2 id="questionheading" class="accessibility">Frage</h2>
                     <p id="questiontext">
-                    	<input type="hidden" id="questionid" value="<jsp:getProperty name="currQuestion" property="id"></jsp:getProperty>"/>
-                    	<jsp:getProperty name="currQuestion" property="text"></jsp:getProperty>
+                    	<input type="hidden" id="questionid" value="<jsp:getProperty name="currentQuestion" property="id"></jsp:getProperty>"/>
+                    	<jsp:getProperty name="currentQuestion" property="text"></jsp:getProperty>
                     </p>
                     <ul id="answers">
                     <%  for (int i = 0; i < choices.size(); i++) { %>
@@ -89,7 +95,7 @@
             
             // initialize time
             $(document).ready(function() {
-                var maxtime = <jsp:getProperty name="currQuestion" property="maxTime"></jsp:getProperty>;
+                var maxtime = <jsp:getProperty name="currentQuestion" property="maxTime"></jsp:getProperty>;
                 var hiddenInput = $("#timeleftvalue");
                 var meter = $("#timer meter");
                 var timeleft = $("#timeleft");

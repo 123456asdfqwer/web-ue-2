@@ -1,4 +1,4 @@
-package at.ac.tuwien.big.we14.lab2.services;
+package at.ac.tuwien.big.we14.lab2.api.services;
 
 import java.util.List;
 
@@ -18,6 +18,7 @@ public class InitGameService implements Service {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
+		//init a list of cateogories, provided by JSON API
 		ServletContext servletContext = request.getServletContext();
 		QuizFactory factory = ServletQuizFactory.init(servletContext);
 		QuestionDataProvider provider = factory.createQuestionDataProvider();
@@ -28,9 +29,17 @@ public class InitGameService implements Service {
 			session.invalidate();
 			session = request.getSession(true);
 		}
-		Question myAsk = categories.get(4).getQuestions().get(4);
+		//Question myAsk = categories.get(4).getQuestions().get(4);
 		
-		session.setAttribute("currQuestion", myAsk);
+		String game = null;
+		game.startGame(categories, Players.COMPUTER, Players.USER );
+		
+		session.setAttribute("player1", game.getCurrentPlayer(1));
+		session.setAttribute("player2", game.getCurrentPlayer(2));
+		session.setAttribute("currentRound", game.getCurrentRound());
+		session.setAttribute("currentGame", game);
+		session.setAttribute("currentQuestion", game.getCurrentRound().getCurrentQuestion());
+		
 		session.setAttribute("state", "question");
 		return "question";
 	}
